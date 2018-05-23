@@ -1,4 +1,4 @@
-const $ = require('jquery');
+var $ = require('jquery');
 
 $(document).ready(function () {
 
@@ -39,7 +39,7 @@ function onScroll(event){
     });
 }
 
-const scroll = (el, hash) => {
+var scroll = (el, hash) => {
   $(document).off("scroll");
   $('li').each(function () {
       $(this).removeClass('active');
