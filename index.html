@@ -30,8 +30,8 @@
 				<li><a href="#services">NAŠE SLUŽBY<span></span></a></li>
 				<li><a href="#products">PORTFOLIO<span></span></a></li>
 				<li><a href="#career">SPOLUPRÁCE<span></span></a></li>
+				<!--<li><a href="#poradci">PORADCI<span></span></a></li>-->
 				<li><a href="#contact">KONTAKT<span></span></a></li>
-				<li><a href="#poradci">PORADCI<span></span></a></li>
 			</ul>
 		</nav>
 	</div>
@@ -45,7 +45,7 @@
 			</h2>
 			<div id="about" class="item">
 				<div class="row">
-					<div class="col-6">
+					<div class="col-6 smart-center">
 						<img src="./asserts/images/logo.png" alt="ViaFinance" />
 					</div>
 					<div class="col-6">
@@ -286,6 +286,13 @@
 			</div>
 		</div>
 
+		<!--<div id="poradci" class="item poradci">
+			<h2>
+				<span class="h2_content">PORADCI</span>
+				<span class="h2_line"></span>
+			</h2>
+		</div>-->
+
 		<div id="contact" class="item address">
 
 			<h2>
@@ -326,6 +333,7 @@
 						<h5>
 							<a href="https://www.facebook.com/pages/ViaFinance/262810553899141" target="_blank" title="ViaFinance facebook">Facebook</a>
 						</h5>
+						<div class="cl"> </div>
 					</div>
 
 					<h4 class="reality">
@@ -334,7 +342,7 @@
 					</h4>
 
 					<div class="address_address">
-						<div class="icon hypoteky"></div>
+						<div class="icon pojisteni_majetku"></div>
 						<h5>
 							<a href="https://www.vfreality.cz" target="_blank" title="ViaFinance reality">ViaFinance reality</a>
 						</h5>
@@ -365,13 +373,6 @@
 			</div>
 		</div>
 
-		<div id="poradci" class="item poradci">
-			<h2>
-				<span class="h2_content">PORADCI</span>
-				<span class="h2_line"></span>
-			</h2>
-		</div>
-
 		<div id="mappart" class="item-full">
 
 			<div id="map"></div>
@@ -380,9 +381,10 @@
 				function initMap() {
 					map = new google.maps.Map(document.getElementById('map'), {
 						center: { lat: 50.03883085, lng: 15.78549109 },
-						zoom: 10
+						zoom: 8
 					});
 
+					// https://www.maps.ie/coordinates.html
 					new google.maps.Marker({
 						position: { lat: 50.0381273241749, lng: 15.786857319573983 },
 						map: map,
@@ -402,9 +404,9 @@
 					});
 
 					new google.maps.Marker({
-						position: { lat: 49.94365688685223, lng: 15.803336811761483 },
+						position: { lat: 49.3992365, lng: 17.674021100000004 },
 						map: map,
-						title: 'Chrudim'
+						title: 'Bystřice pod Hostynem'
 					});
 
 				}
@@ -439,7 +441,7 @@
 		</div>
 
 		<div class="copyright">
-			<div class="item">ViaFinance &reg;</div>
+			<div class="vf_footer">ViaFinance &reg;</div>
 		</div>
 
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzFiohkp-Mivy2GgCH3a2Yd4YLSYJKOwY&callback=initMap" async defer></script>
