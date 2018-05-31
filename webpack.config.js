@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = ({ minify = false, production = false } = {}) => {
 	const extractLess = new ExtractTextPlugin('[name]');
@@ -9,6 +10,12 @@ module.exports = ({ minify = false, production = false } = {}) => {
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify(production ? 'production' : 'development')
 		}),
+		new CopyWebpackPlugin([
+			{ from: './src/less/img/onas.jpg', to: './img/onas.jpg' },
+			{ from: './src/less/img/products_bckg.png', to: './img/products_bckg.png' },
+			{ from: './src/less/img/portfolio.jpg', to: './img/portfolio.jpg' },
+			{ from: './src/less/img/career.jpg', to: './img/career.jpg' }
+		], {}),
 		extractLess
 	];
 
@@ -21,7 +28,7 @@ module.exports = ({ minify = false, production = false } = {}) => {
 	return {
 		entry: {
 			'bundle.css': './src/less/viafinance.less',
-      'bundle.js': './src/js/App.js',
+			'bundle.js': './src/js/App.js',
 		},
 		output: {
 			filename: '[name]',

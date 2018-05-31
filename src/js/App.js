@@ -4,9 +4,6 @@ $(document).ready(function () {
 
     if (window.location.hash.length > 0) {
         let hash = window.location.hash;
-        if (hash.substr(-1) === '!') {
-          hash = hash.substr(0, hash.length - 1);
-        }
         scroll($(this), hash);
     }
     $(document).on("scroll", onScroll);
@@ -21,7 +18,20 @@ $(document).ready(function () {
       $('ul').toggleClass('opening');
       $(this).toggleClass('open');
       $('.context').toggleClass('menu-correction');
-    })
+ 	});
+
+	var currentHash = "#about"
+	$(document).scroll(function () {
+		$('.crollitem').each(function () {
+			var top = window.pageYOffset;
+			var distance = top - $(this).offset().top;
+			var hash = $(this).attr('id');
+			if (distance < 30 && distance > -30 && currentHash != hash) {
+				window.location.hash = (hash);
+				currentHash = hash;
+			}
+		});
+	});
 });
 
 function onScroll(event){
@@ -39,7 +49,7 @@ function onScroll(event){
     });
 }
 
-var scroll = (el, hash) => {
+var scroll = function (el, hash) {
   $(document).off("scroll");
   $('li').each(function () {
       $(this).removeClass('active');
@@ -53,7 +63,7 @@ var scroll = (el, hash) => {
   $('html, body').stop().animate({
       'scrollTop': $target.offset().top-150
   }, 500, 'swing', function () {
-      window.location.hash = target + '!';
+      window.location.hash = target;
       $(document).on("scroll", onScroll);
   });
 };
