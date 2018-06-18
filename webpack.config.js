@@ -16,7 +16,10 @@ module.exports = ({ minify = false, production = false } = {}) => {
 			{ from: './src/less/img/portfolio.jpg', to: './img/portfolio.jpg' },
 			{ from: './src/less/img/career.jpg', to: './img/career.jpg' }
 		], {}),
-		extractLess
+		extractLess,
+		new webpack.ProvidePlugin({
+			$: 'jquery'
+	 	})
 	];
 
 	if (production) {

@@ -1,5 +1,3 @@
-var $ = require('jquery');
-
 $(document).ready(function () {
 
     if (window.location.hash.length > 0) {
@@ -32,7 +30,22 @@ $(document).ready(function () {
 			}
 		});
 	});
+
+	initModal('open-modal', 'modal-demo');
+
 });
+
+function initModal(opener, modal) {
+	var openModal = document.getElementById(opener);
+	var modal = document.getElementById(modal);
+	var closeModal = document.getElementsByClassName('close-modal')[0];
+	openModal.addEventListener('click', function(){
+		modal.classList.toggle('visible');
+	});
+	closeModal.addEventListener('click', function(){
+		modal.classList.remove('visible');
+	});
+}
 
 function onScroll(event){
     var scrollPos = $(document).scrollTop() + 150;
@@ -59,9 +72,9 @@ var scroll = function (el, hash) {
   var target = hash,
   menu = target;
 
-  $target = $(target);
+  //$target = $(target);
   $('html, body').stop().animate({
-      'scrollTop': $target.offset().top-150
+      'scrollTop': $(target).offset().top-150
   }, 500, 'swing', function () {
       window.location.hash = target;
       $(document).on("scroll", onScroll);
